@@ -5,8 +5,24 @@
   <div id="idiocy"></div>
 
   <script>
-    const loadTweets = function() {
-      const stupidity = [
+    function shuffle(array) { // https://stackoverflow.com/questions/6274339/how-can-i-shuffle-an-array
+      let counter = array.length;
+      // While there are elements in the array
+      while (counter > 0) {
+        // Pick a random index
+        let index = Math.floor(Math.random() * counter);
+        // Decrease counter by 1
+        counter--;
+        // And swap the last element with it
+        let temp = array[counter];
+        array[counter] = array[index];
+        array[index] = temp;
+      }
+      return array;
+    }
+
+    function loadTweets() {
+      const stupidity = shuffle([
         "997873541671538689", "994902295178612737", "983140668053782528", "979835090850246661",
         "976618995108466688", "972925984558247937", "972877144408944640", "969215431981576195",
         "968615619171094528", "966666056973643776", "964851824330240000", "964562286148022274",
@@ -29,7 +45,8 @@
         "809568874739957760", "809458422081011712", "809457695367557120", "809457294148796416",
         "808752291985625088", "807975778797420548", "804494668696342529", "804494543873839104",
         "804403545596448769"
-      ]
+      ])
+
       const idiocy = document.getElementById('idiocy')
       stupidity.forEach(id => fetch('https://cors-anywhere.herokuapp.com/https://publish.twitter.com/oembed?url=https%3A%2F%2Ftwitter.com%2FInterior%2Fstatus%2F' + id + '&omit_script=t').then(res => res.json()).then(json => {
         twttr.widgets.createTweet(
@@ -49,9 +66,6 @@
       fjs.parentNode.insertBefore(js, fjs);
 
       t._e = [loadTweets];
-      // t.ready = function(f) {
-      //   t._e.push(f);
-      // };
 
       return t;
     }(document, "script", "twitter-wjs"));
