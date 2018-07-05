@@ -73,12 +73,12 @@
       ])
 
       const idiocy = document.getElementById('idiocy')
-      stupidity.forEach(id => fetch('https://cors-anywhere.herokuapp.com/https://publish.twitter.com/oembed?url=https%3A%2F%2Ftwitter.com%2FInterior%2Fstatus%2F' + id + '&omit_script=t').then(res => res.json()).then(json => {
+      stupidity.forEach(id => {
         twttr.widgets.createTweet(
           id,
           idiocy
         )
-      }))
+      })
     }
 
     window.twttr = (function(d, s, id) {
