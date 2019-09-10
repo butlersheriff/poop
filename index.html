@@ -12,6 +12,13 @@
         gtag('config', 'UA-121898320-1');
     </script>
 
+    <script>
+        window.addEventListener('load', function() {
+            document.getElementById('but-that-ok-tweet').visibility = 'visible'
+            document.getElementById('idiocy').visibility = 'visible'
+        })
+    </script>
+
     <link href="https://fonts.googleapis.com/css?family=Shrikhand&display=swap" rel="stylesheet">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -33,6 +40,9 @@
             font-family: 'Shrikhand', cursive;
             text-shadow: 2px 2px rgba(0, 0, 0, 0.2);
         }
+        #but-that-ok-tweet, #idiocy {
+            visibility: hidden;
+        }
         @media (min-width: 1205px) {
             #but-that-ok {
                 background-color: #00aced;
@@ -47,7 +57,7 @@
 <body>
     <header id="but-that-ok">
         <h1>but that ok 🙏</h1>
-        <blockquote class="twitter-tweet">
+        <blockquote class="twitter-tweet" id="but-that-ok-tweet">
             <p lang="en" dir="ltr">Maybe Stacy this will help you get more followers. I probably have more education
                 than you. But that ok.</p>&mdash; Richard K. Jones (@butlersheriff) <a
                 href="https://twitter.com/butlersheriff/status/968615619171094528?ref_src=twsrc%5Etfw">February 27,
